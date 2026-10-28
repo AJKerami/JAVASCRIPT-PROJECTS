@@ -7,6 +7,7 @@ document.write("<p>String plus number: " + ("Projects: " + 3) + "</p>");
 
 // == allows type conversion; === compares both type and value.
 document.write("<p>10 == '10': " + (10 == "10") + "</p>");
+document.write("<p>10 == 5: " + (10 == 5) + "</p>");
 document.write("<p>10 === '10': " + (10 === "10") + "</p>");
 document.write("<p>10 === 10: " + (10 === 10) + "</p>");
 document.write("<p>10 === 5: " + (10 === 5) + "</p>");
