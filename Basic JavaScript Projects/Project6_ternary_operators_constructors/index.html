@@ -24,7 +24,7 @@
     <p id="vehicleResult" aria-live="polite"></p>
     <h2>Nested function</h2>
     <button type="button" onclick="showNestedFunction()">Run a nested function</button>
-    <p id="nestedResult" aria-live="polite"></p>
+    <p id="nestedResult" onclick="showNestedFunction()" role="button" tabindex="0" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showNestedFunction(); }" aria-live="polite">Click here to run the nested function.</p>
     <p>A reserved keyword cannot be used as a variable name. The invalid example is explained in the JavaScript comments.</p>
 </body>
 </html>
