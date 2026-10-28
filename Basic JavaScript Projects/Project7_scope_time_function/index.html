@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope and Time Functions</title>
+    <script src="JS/main.js" defer></script>
+</head>
+<body>
+    <h1>Scope and Time Functions</h1>
+    <button type="button" onclick="showScope()">Show local and global variables</button>
+    <p id="scopeResult" aria-live="polite"></p>
+    <button type="button" onclick="showDateMessage()">Check today's time</button>
+    <p id="dateResult" aria-live="polite"></p>
+    <label for="practiceHours">Hours of practice today</label>
+    <input id="practiceHours" type="number" min="0" max="24" step="any" required>
+    <button type="button" onclick="checkPractice()">Check my practice</button>
+    <p id="practiceResult" aria-live="polite"></p>
+    <button type="button" onclick="debugScopeError()">Demonstrate and debug a scope error</button>
+    <p id="debugResult" aria-live="polite"></p>
+    <p>Open the browser console to see the intentional error and its explanation.</p>
+    <button type="button" onclick="Time_function()">What time of day is it?</button>
+    <p id="Time_of_day" aria-live="polite"></p>
+</body>
+</html>

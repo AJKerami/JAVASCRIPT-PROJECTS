@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary Operators and Constructors</title>
+    <script src="JS/main.js" defer></script>
+</head>
+<body>
+    <h1>Ternary Operators and Constructors</h1>
+    <h2>Ride height check</h2>
+    <label for="height">Height in centimetres</label>
+    <input id="height" type="number" min="0" step="any" required>
+    <button type="button" onclick="checkHeight()">Check the 120 cm minimum</button>
+    <p id="rideResult" aria-live="polite"></p>
+    <h2>Voting age check</h2>
+    <label for="age">Age in years</label>
+    <input id="age" type="number" min="0" step="1" required>
+    <button type="button" onclick="checkAge()">Check the age of 18</button>
+    <p id="ageResult" aria-live="polite"></p>
+    <p>This exercise checks age only; other eligibility rules are outside this example.</p>
+    <h2>Vehicle constructor</h2>
+    <button type="button" onclick="showVehicle()">Show the example vehicle</button>
+    <p id="vehicleResult" aria-live="polite"></p>
+    <h2>Nested function</h2>
+    <button type="button" onclick="showNestedFunction()">Run a nested function</button>
+    <p id="nestedResult" aria-live="polite"></p>
+    <p>A reserved keyword cannot be used as a variable name. The invalid example is explained in the JavaScript comments.</p>
+</body>
+</html>
