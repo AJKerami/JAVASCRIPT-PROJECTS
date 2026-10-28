@@ -17,7 +17,9 @@ document.write("<p>10 === '5': " + (10 === "5") + "</p>");
 document.write("<p>10 &gt; 5: " + (10 > 5) + "</p>");
 document.write("<p>10 &lt; 5: " + (10 < 5) + "</p>");
 document.write("<p>(10 &gt; 5) &amp;&amp; (3 &lt; 4): " + ((10 > 5) && (3 < 4)) + "</p>");
+document.write("<p>(10 &lt; 5) &amp;&amp; (3 &lt; 4): " + ((10 < 5) && (3 < 4)) + "</p>");
 document.write("<p>(10 &lt; 5) || (3 &lt; 4): " + ((10 < 5) || (3 < 4)) + "</p>");
+document.write("<p>(10 &lt; 5) || (3 &gt; 4): " + ((10 < 5) || (3 > 4)) + "</p>");
 document.write("<p>!(10 &gt; 5): " + !(10 > 5) + "</p>");
 document.write("<p>!(10 &lt; 5): " + !(10 < 5) + "</p>");
 
