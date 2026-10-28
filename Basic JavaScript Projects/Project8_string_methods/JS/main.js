@@ -30,3 +30,11 @@ function precisionMethod() {
   const number = 12938.3012987376112;
   document.getElementById("Precision").innerHTML = number.toPrecision(10);
 }
+
+// toFixed() specifies decimal places; valueOf() unwraps a Number object.
+function newMethods() {
+  const price = 12.3456;
+  const wrappedNumber = new Number(42);
+  document.getElementById("Fixed").innerHTML = price.toFixed(2);
+  document.getElementById("ValueOf").innerHTML = wrappedNumber.valueOf();
+}
