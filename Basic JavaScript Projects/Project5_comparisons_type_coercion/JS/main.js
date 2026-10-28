@@ -24,8 +24,9 @@ document.write("<p>!(10 &lt; 5): " + !(10 < 5) + "</p>");
 document.write("<p>0 / 0: " + (0 / 0) + "</p>");
 document.write("<p>isNaN('Wrench'): " + isNaN("Wrench") + "</p>");
 document.write("<p>isNaN('12'): " + isNaN("12") + "</p>");
-document.write("<p>Positive infinity: " + (2E310) + "</p>");
-document.write("<p>Negative infinity: " + (-2E310) + "</p>");
+// Assign overflow results to the matching HTML elements.
+document.getElementById("positiveInfinity").textContent = 2E310;
+document.getElementById("negativeInfinity").textContent = -2E310;
 
 // View this output with the browser's developer tools.
 console.log("Boolean example: 10 < 5 is", 10 < 5);
