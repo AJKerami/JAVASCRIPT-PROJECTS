@@ -11,7 +11,8 @@
     <button type="button" onclick="showScope()">Show local and global variables</button>
     <p id="scopeResult" aria-live="polite"></p>
     <button type="button" onclick="showDateMessage()">Check today's time</button>
-    <p id="dateResult" aria-live="polite"></p>
+    <p id="dateResult" onclick="showDateMessage()" role="button" tabindex="0" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showDateMessage(); }" aria-live="polite">Click here to check today's time.</p>
+    <p>Enter your hours of practice today, then select Check my practice.</p>
     <label for="practiceHours">Hours of practice today</label>
     <input id="practiceHours" type="number" min="0" max="24" step="any" required>
     <button type="button" onclick="checkPractice()">Check my practice</button>
