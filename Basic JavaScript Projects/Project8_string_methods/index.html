@@ -8,7 +8,8 @@
 </head>
 <body>
   <h1>JavaScript String and Number Methods</h1>
-  <p id="Concatenate" onclick="fullSentence()">Click to join several strings.</p>
+  <button type="button" onclick="fullSentence()">Join several strings with concat()</button>
+  <p id="Concatenate"></p>
   <p id="Slice"></p>
   <button type="button" onclick="sliceMethod()">Extract a name with slice()</button>
   <p>toUpperCase() returns a new string with the letters converted to uppercase.</p>
@@ -20,5 +21,10 @@
   <p id="NumberToString"></p>
   <button type="button" onclick="precisionMethod()">Format to 10 significant digits</button>
   <p id="Precision"></p>
+  <p>toFixed() returns a string rounded to a specified number of decimal places.</p>
+  <p>Number.valueOf() returns the primitive numeric value of a Number object.</p>
+  <button type="button" onclick="newMethods()">Run toFixed() and valueOf()</button>
+  <p id="Fixed"></p>
+  <p id="ValueOf"></p>
 </body>
 </html>
