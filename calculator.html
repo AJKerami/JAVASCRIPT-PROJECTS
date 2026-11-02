@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Calculator</title>
+  <link rel="stylesheet" href="CSS/Calculator_CSS.css">
+</head>
+<body>
+  <main class="calculator" aria-label="Calculator">
+    <input id="display" value="0" aria-label="Calculator display" readonly>
+    <div class="keys">
+      <button class="operator" data-action="+">+</button><button class="operator" data-action="-">-</button><button class="operator" data-action="*">×</button><button class="operator" data-action="/">÷</button>
+      <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button data-value="4">4</button>
+      <button data-value="5">5</button><button data-value="6">6</button><button data-value="1">1</button><button data-value="2">2</button>
+      <button data-value="3">3</button><button data-value="0">0</button><button data-value=".">.</button><button data-action="clear">AC</button><button class="equals" data-action="equals">=</button>
+    </div>
+  </main>
+  <script>
+    // The display shows the current number or the result of a calculation.
+    const display = document.getElementById('display');
+
+    // These variables hold the first number, selected operation, and input state.
+    let stored = null;
+    let operator = null;
+    let waitingForValue = true;
+
+    // Add a digit or decimal point to the display.
+    function inputValue(value) {
+      // Start a fresh number after an operator or completed calculation.
+      if (waitingForValue) {
+        display.value = value === '.' ? '0.' : value;
+        waitingForValue = false;
+        return;
+      }
+
+      // A number may contain only one decimal point.
+      if (value === '.' && display.value.includes('.')) return;
+      display.value += value;
+    }
+
+    // Perform the selected arithmetic operation.
+    function calculate(left, right, action) {
+      if (action === '+') return left + right;
+      if (action === '-') return left - right;
+      if (action === '*') return left * right;
+      // NaN lets the caller display a friendly error for division by zero.
+      if (action === '/') return right === 0 ? NaN : left / right;
+      return right;
+    }
+
+    // Store the current number and remember which operation to perform next.
+    function chooseOperator(action) {
+      const current = Number(display.value);
+
+      // Support chained calculations such as 2 + 3 + 4.
+      if (operator && stored !== null && !waitingForValue) {
+        stored = calculate(stored, current, operator);
+        display.value = Number.isFinite(stored) ? String(stored) : 'Error';
+      } else if (stored === null) {
+        stored = current;
+      }
+
+      operator = action;
+      waitingForValue = true;
+    }
+
+    // Complete the calculation when the equals button is pressed.
+    function equals() {
+      if (operator === null || stored === null) return;
+
+      const result = calculate(stored, Number(display.value), operator);
+      display.value = Number.isFinite(result) ? String(result) : 'Error';
+
+      // Reset the calculator so the next digit starts a new calculation.
+      stored = null;
+      operator = null;
+      waitingForValue = true;
+    }
+
+    // Connect every button to the appropriate calculator action.
+    document.querySelectorAll('button').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (button.dataset.value !== undefined) {
+          inputValue(button.dataset.value);
+        } else if (button.dataset.action === 'clear') {
+          // AC resets the display and all calculation state.
+          display.value = '0';
+          stored = null;
+          operator = null;
+          waitingForValue = true;
+        } else if (button.dataset.action === 'equals') {
+          equals();
+        } else {
+          chooseOperator(button.dataset.action);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
